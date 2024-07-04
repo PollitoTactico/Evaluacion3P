@@ -1,10 +1,13 @@
-﻿namespace Evaluacion3P
+﻿using System;
+using Evaluacion3P.Services;
+namespace Evaluacion3P
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
+            var paisService = new PaisSer();
 
             MainPage = new AppShell();
         }

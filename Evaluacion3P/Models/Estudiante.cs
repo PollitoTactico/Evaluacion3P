@@ -8,16 +8,11 @@ using System.Threading.Tasks;
 
 namespace Evaluacion3P.Models
 {
-
-    [SQLite.Table("Paises")]
-    public class Paises
+    [SQLite.Table("Estudiante")]
+    internal class Estudiante
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Subregion { get; set; }
-        public string Status { get; set; }
-
-    
+        public string JoseSanchez { get; set; }
     }
 }
