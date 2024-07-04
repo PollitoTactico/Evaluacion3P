@@ -17,32 +17,34 @@ namespace Evaluacion3P.Services
             var cliente = new HttpClient();
             var response = await cliente.GetAsync(urlApi);
             var reponseBody = await response.Content.ReadAsStringAsync();
-            JsonNode nodos = JsonNode.Parse(reponseBody);
-            JsonNode results = nodos["results"];
+            var paisesData = JsonSerializer.Deserialize<List<JsonNode>>(reponseBody);
 
-            var paisesData = JsonSerializer.Deserialize<List<Paises>>(results.ToString());
+            var paises = new List<Paises>();
 
-            var tasks = paisesData.Select(async pais =>
+            foreach (var nodo in paisesData)
             {
-                var paisResponse = await cliente.GetAsync(pais.Name);
-                var paisResponseBody = await paisResponse.Content.ReadAsStringAsync();
-                JsonNode paisNode = JsonNode.Parse(paisResponseBody);
+                var pais = new Paises
+                {
+                    Name = nodo["name"]["official"].ToString(),
+                    
+                    Subregion = nodo["subregion"]?.ToString(),
+                    Status = nodo["status"]?.ToString(),
+                    JoseSanchez = GenerateCode("JS")
+                };
 
+                paises.Add(pais);
+            }
 
-                var status = paisNode["status"].AsArray();
-                var statusList = status.Select(statusNode => statusNode["status"] ["Name"].ToString()).ToList();
-                pais.Status = string.Join(",", statusList);
-
-                var subregion = paisNode["subregion"].AsArray();
-                var subregionList = subregion.Select(subregionNode => subregionNode["subregion"] ["Name"].ToString()).ToList();
-                pais.Subregion = string.Join(",", subregionList);
-
-               
-            });
-
-            await Task.WhenAll(tasks);
-            return paisesData;
+            return paises;
         }
-        
+
+        private string GenerateCode(string initials)
+        {
+            Random random = new Random();
+            int number = random.Next(1000, 2001);
+            return $"{initials}{number}";
+        }
     }
+
+    
 }

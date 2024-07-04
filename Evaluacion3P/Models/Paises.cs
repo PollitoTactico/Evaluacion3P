@@ -18,6 +18,9 @@ namespace Evaluacion3P.Models
         public string Subregion { get; set; }
         public string Status { get; set; }
 
+        public string JoseSanchez { get; set; } 
+
+
     
     }
 }

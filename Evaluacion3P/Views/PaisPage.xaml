@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Evaluacion3P.Views.PaisPage"
+             Title="PaisPage">
+
+    <StackLayout>
+        <Button Text="Obtener Países" Command="{Binding LoadPaisesCommand}" />
+        <ListView ItemsSource="{Binding Paises}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding JoseSanchez}" />
+                            <Button Text="Actualizar" Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.UpdatePaisCommand}" CommandParameter="{Binding .}" />
+                            <Button Text="Eliminar" Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.DeletePaisCommand}" CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
