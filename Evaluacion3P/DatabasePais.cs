@@ -10,12 +10,24 @@ namespace Evaluacion3P
 {
     public class DatabasePais
     {
+        public string StatusMessage { get; set; }
         private readonly SQLiteAsyncConnection _database;
 
         public DatabasePais(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Paises>().Wait();
+
+            try
+            {
+                _database = new SQLiteAsyncConnection(dbPath);
+                _database.CreateTableAsync<Paises>().Wait();
+
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to initialize database. Error: {0}", ex.Message);
+
+            }
+           
         }
 
         public Task<List<Paises>> GetPaisesAsync()
@@ -38,6 +50,7 @@ namespace Evaluacion3P
 
         public Task<int> UpdatePaisAsync(Paises pais)
         {
+            
             return _database.UpdateAsync(pais);
         }
 
