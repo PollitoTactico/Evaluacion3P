@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Evaluacion3P.Views.AboutPage"
-             Title="AboutPage">
-    <StackLayout Padding="10">
-        <Image Source="favorite_character.png" Aspect="AspectFit" HeightRequest="200"/>
-        <Entry Placeholder="Ingresa tu nombre" Text="{Binding UserName}" />
-        <Editor Placeholder="Escribe por qué te gusta este personaje" Text="{Binding UserReason}" />
-        <Button Text="Guardar" Command="{Binding SaveReasonCommand}" />
-        <Label Text="{Binding SavedReason}" TextColor="Black" FontSize="Medium" Margin="10"/>
-    </StackLayout>
-</ContentPage>
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="Evaluacion3P.Views.AboutPage"
+                 Title="AboutPage">
+        <StackLayout Padding="10">
+            <Image Source="papu.png" Aspect="AspectFit" HeightRequest="200"/>
+            <Entry Placeholder="Hola soy Jose Sanchez" Text="{Binding UserName}" />
+            <Editor Placeholder="Me gusta este personaje porque me recuerda que aunque seas pequeño puedes hacer grandes cosas es un bichito peleando contra dioses osea increible. No puedo pasar del 5to boss ayuda" Text="{Binding UserReason}" />
+            <Button Text="Guardar" Command="{Binding SaveReasonCommand}" />
+            <Label Text="{Binding SavedReason}" TextColor="Black" FontSize="Medium" Margin="10"/>
+        </StackLayout>
+ </ContentPage>

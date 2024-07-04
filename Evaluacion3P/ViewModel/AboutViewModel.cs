@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Evaluacion3P.ViewModel
 {
-    public class AboutViewModel
+    public class AboutViewModel : BaseViewModel
     {
         private string _userName;
         private string _userReason;
