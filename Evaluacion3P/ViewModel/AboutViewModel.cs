@@ -40,7 +40,7 @@ namespace Evaluacion3P.ViewModel
 
         private void SaveReason()
         {
-            SavedReason = $"A mi, {UserName}, me gusta este personaje porque {UserReason}";
+            SavedReason = $"A mi, {UserName}, me gusta este personaje porque... {UserReason}";
         }
     }
 }

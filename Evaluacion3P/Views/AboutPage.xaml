@@ -4,10 +4,9 @@
                  x:Class="Evaluacion3P.Views.AboutPage"
                  Title="AboutPage">
         <StackLayout Padding="10">
-            <Image Source="papu.png" Aspect="AspectFit" HeightRequest="200"/>
-            <Entry Placeholder="Hola soy Jose Sanchez" Text="{Binding UserName}" />
-            <Editor Placeholder="Me gusta este personaje porque me recuerda que aunque seas pequeño puedes hacer grandes cosas es un bichito peleando contra dioses osea increible. No puedo pasar del 5to boss ayuda" Text="{Binding UserReason}" />
-            <Button Text="Guardar" Command="{Binding SaveReasonCommand}" />
-            <Label Text="{Binding SavedReason}" TextColor="Black" FontSize="Medium" Margin="10"/>
+            <Image Source="papu.jpg" Aspect="AspectFit" HeightRequest="200"/>
+            <Label Text="Jose Sanchez"/>
+            <Label Text="Me gusta porque es el mejor like souls que he jugado"  />
+           
         </StackLayout>
  </ContentPage>

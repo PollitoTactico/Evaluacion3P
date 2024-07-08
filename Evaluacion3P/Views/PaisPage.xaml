@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Evaluacion3P.Views.PaisPage"
+              x:Name="mainPage"
              Title="PaisPage">
 
     <StackLayout>
@@ -13,8 +14,15 @@
                         <StackLayout>
                             <Label Text="{Binding Name}" />
                             <Label Text="{Binding JoseSanchez}" />
-                            <Button Text="Actualizar" Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.UpdatePaisCommand}" CommandParameter="{Binding .}" />
-                            <Button Text="Eliminar" Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.DeletePaisCommand}" CommandParameter="{Binding .}" />
+                            <Button Text="Actualizar" 
+                                    Command="{Binding Source={x:Reference mainPage}, 
+                                Path=BindingContext.UpdatePaisCommand}"
+                                    CommandParameter="{Binding .}"  BackgroundColor="Gray"/>
+                            <Button Text="Eliminar"
+                                    Command="{Binding Source={x:Reference mainPage}, 
+                                Path=BindingContext.DeletePaisCommand}"
+                                    CommandParameter="{Binding .}" BackgroundColor="Gray"/>
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
